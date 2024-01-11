@@ -1,0 +1,7 @@
+Flask
+keras
+numpy
+Pillow
+tensorflow
+six
+tensorflow_hub
