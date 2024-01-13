@@ -1,12 +1,12 @@
 import numpy as np
 from tensorflow import keras
-from keras.applications.resnet import ResNet50
+from keras.applications.inception_v3 import InceptionV3
 import keras.utils as image
 from keras.applications.resnet import preprocess_input, decode_predictions
 
 
 def load_model():
-    model = ResNet50(weights='imagenet')
+    model = InceptionV3(weights='imagenet')
     # Optionally, add model compilation details here
     return model
 
