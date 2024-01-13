@@ -17,10 +17,14 @@ def upload():
         file = request.files["file"]
         if file:
             filename = save_file(file)
-            pre_image = preprocess_image(filename)
-            prediction = predict(model, pre_image)
-            results = decode_results(prediction)
-            return render_template("results.html", results=results)
+            try:
+                pre_image = preprocess_image(filename)
+                prediction = predict(model, pre_image)
+                results = decode_results(prediction)
+                return render_template("results.html", results=results)
+            except Exception as e:
+                # Handle error
+                return render_template("error.html", error_message=str(e)), 500  # Return a 500 error code
 
     return "Error"
 
