@@ -2,7 +2,7 @@ import numpy as np
 from tensorflow import keras
 from keras.applications.resnet import ResNet50
 import keras.utils as image
-from keras.applications.resnet import preprocess_input
+from keras.applications.resnet import preprocess_input, decode_predictions
 
 
 def load_model():
@@ -22,3 +22,8 @@ def preprocess_image(filename):
 def predict(model, stored_image):
     preds = model.predict(stored_image)
     return preds
+
+
+def decode_results(preds, top=3):
+    results = decode_predictions(preds, top=top)[0]
+    return results
