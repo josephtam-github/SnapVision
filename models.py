@@ -19,8 +19,8 @@ def preprocess_image(filename):
     # adds a batch dimension as most models expect a 4D tensor for prediction
     x = np.expand_dims(x, axis=0)
     # performs specific transformations for the model
-    x = preprocess_input(x)
-    return x
+    pre_image = preprocess_input(x)
+    return pre_image
 
 
 def predict(model, stored_image):
